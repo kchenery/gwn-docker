@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-RUN yum -y install epel-release jemalloc libaio glibc-devel fontconfig xorg-x11-font-utils freetype curl openssl
+RUN yum -y install epel-release sysvinit-tools jemalloc libaio glibc-devel fontconfig xorg-x11-font-utils freetype curl openssl
 
 RUN curl http://www.grandstream.com/hubfs/IoT%20Team/GWN_Manager-1.0.22.23.tar.gz --output GWN_Manager-1.0.22.23.tar.gz
 RUN tar -xvzf ./GWN_Manager-1.0.22.23.tar.gz
