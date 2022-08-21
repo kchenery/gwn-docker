@@ -1,0 +1,16 @@
+version: '3.9'
+services:
+  gwn:
+    container_name: gwn
+    build:
+      context: .
+    image: gwn:latest
+    restart: unless-stopped
+    ports:
+      - 8000:8000
+      - 10014:10014
+    volumes:
+      - gwndata:/gwn
+
+volumes:
+  gwndata:
