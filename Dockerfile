@@ -7,13 +7,10 @@ RUN yum -y update && \
     tar -xvzf ./GWN_Manager.tar.gz && \
     rm ./GWN_Manager.tar.gz && \
     yum -y install ./gwn*.rpm && \
-    yum clean all
+    yum clean all && \
+    rm ./*.rpm
 
-COPY conf/local_env.cfg /gwn/conf/gwn/local_env.cfg
-COPY conf/gwn.conf      /gwn/conf/gwn.conf
-COPY conf/my.cnf        /gwn/conf/mysql/my.cnf
-COPY conf/nginx.conf    /gwn/conf/nginx/nginx.conf
-COPY conf/redis.conf    /gwn/conf/redis/redis.conf
+ADD conf /gwn/conf/
 
 COPY scripts/entrypoint.sh /entrypoint.sh
 
@@ -21,7 +18,6 @@ RUN chown -R gwn:gwn /gwn/conf/* && \
     chmod -R a+r /gwn/conf/* && \
     chmod a+x /entrypoint.sh
 
-#EXPOSE 8443
 EXPOSE 8000
 EXPOSE 10014
 
