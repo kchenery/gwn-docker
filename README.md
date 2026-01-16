@@ -2,7 +2,7 @@
 
 This is a version of [Grandstream's GWN Manager](http://www.grandstream.com/products/networking-solutions/wi-fi-management/product/gwn-manager) running in docker.  The base OS is Centos 7 as this is one of the supported operating systems as per the documentation
 
-Configuration of GWN Manager has been performed so that the web interface is listening on `http://localhost:8000` with the gateway listening on port `10014`.
+Configuration of GWN Manager has been performed so that the web interface is listening on `https://localhost:8443` and `http://localhost:8000` with the gateway listening on port `10014`.
 
 All the required services are defined in the image including:
 
@@ -19,13 +19,13 @@ Grandstream documentation: [`https://documentation.grandstream.com/knowledge-bas
 1. Clone the repository
 2. run `docker build . -t gwn`
 
-This will tag the image with `gwn`
+This will tag the image with `gwn`. It can take a few minutes to complete the install into the image.
 
 ## Running the image
 
 1. Build the image
-2. Run: `docker run -d -p 8000:8000/tcp -p 10014:10014/tcp --name gwn gwn`<br/>**Note:** it takes a little while to start up the web client.
-3. Connect with: [`http://localhost:8000`](http://localhost:8000)
+2. Run: `docker run -d -p 8443:8443/tcp -p 8000:8000/tcp -p 10014:10014/tcp --name gwn gwn`
+3. Connect with: [`https://localhost:8443`](https://localhost:8443) (or to bypass ssl [`http://localhost:8000`](http://localhost:8000))
 4. Upon first connection you will be asked to configure the admin account - follow the on screen prompts
 
 This will run a container named `gwn`.
