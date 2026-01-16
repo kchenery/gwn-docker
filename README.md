@@ -1,6 +1,6 @@
 # Grandstream GWN Manager
 
-This is a version of [Grandstream's GWN Manager](http://www.grandstream.com/products/networking-solutions/wi-fi-management/product/gwn-manager) running in docker.  The base OS is Centos 7 as this is one of the supported operating systems as per the documentation
+This is a version of [Grandstream's GWN Manager](http://www.grandstream.com/products/networking-solutions/wi-fi-management/product/gwn-manager) running in docker.  The base OS is Ubuntu 24.04.
 
 Configuration of GWN Manager has been performed so that the web interface is listening on `https://localhost:8443` and `http://localhost:8000` with the gateway listening on port `10014`.
 
